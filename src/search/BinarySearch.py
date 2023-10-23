@@ -1,14 +1,20 @@
+# recursive approach for binary search
 def binary_search(arr, low, high, x):
+    # check base case
     if high >= low:
         mid = (high+low)//2
 
+        # if the element is present in the pointer (mid)
         if(arr[mid]) == x:
             return mid
+        # the element can only be present in the left
         elif arr[mid] > x:
             return binary_search(arr, low, mid -1, x)
+        # the element can only be present in the right
         else:
             return binary_search(arr, mid+1, high, x)
     else:
+        # return -1 when the element is not found in the array
         return -1
 
 ## Testing
